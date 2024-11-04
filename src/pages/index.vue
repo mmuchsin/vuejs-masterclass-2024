@@ -3,6 +3,6 @@
 <template>
   <div>
     <h1>Home Page</h1>
-    <RouterLink :to="{ name: '/projects/' }">Projects</RouterLink>
+    <router-link :to="{ name: '/projects/' }">Projects</router-link>
   </div>
 </template>

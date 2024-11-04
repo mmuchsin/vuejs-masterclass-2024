@@ -14,9 +14,12 @@
     "supabase:init": "supabase init",
     "supabase:login": "supabase login",
     "supabase:link": "dotenv -e .env supabase link --project-ref $SUPABASE_PROJECT_ID",
-    "db:new-migration": "supabase migration new",
+    "supabase:type": "dotenv -e .env supabase gen types --lang=typescript --project-id $SUPABASE_PROJECT_ID --schema public > database/types.ts",
+    "db:make-migration": "supabase migration new",
+    "db:migrate": "supabase migration up --linked",
     "db:reset": "supabase db reset --linked",
-    "db:seed": "node --env-file=.env database/seed.js"
+    "db:seed": "node --env-file=.env database/seed.js",
+    "db:refresh": "npm run db:reset && npm run db:seed"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1",
