@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import TopNavbar from '@/components/Layout/TopNavbar.vue'
-import Sidebar from '@/components/Layout/Sidebar.vue'
+const store = usePageStore()
+const { pageData } = storeToRefs(store)
 </script>
 
 <template>
@@ -19,7 +19,9 @@ import Sidebar from '@/components/Layout/Sidebar.vue'
     <!-- Displays the main content according to the selected route. -->
     <main class="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
       <div class="flex items-center">
-        <h1 class="text-lg font-semibold md:text-2xl">Page Title</h1>
+        <h1 class="text-lg font-semibold md:text-2xl">
+          {{ pageData.title }}
+        </h1>
       </div>
       <slot />
     </main>
